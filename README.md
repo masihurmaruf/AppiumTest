@@ -13,7 +13,7 @@ The following was used to create this project
 * gson 2.8.0
 
 ## Application Under Test
-The following was the details of application under test
+The following is the details of application under test. Both `native` and `web` application.
 * Android Version 5.1 (lollipop)
 * Android API version 22
 * Device (emulator) Google Nexus 4
