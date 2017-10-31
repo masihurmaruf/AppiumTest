@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class FirstAppiumTest {
+public class AndroidNativeAutomationTest {
     // Instance of Appium Driver
     AppiumDriver<WebElement> driver;
 

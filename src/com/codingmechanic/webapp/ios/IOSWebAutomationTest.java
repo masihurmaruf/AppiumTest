@@ -1,32 +1,32 @@
-package com.codingmechanic.webapp;
+package com.codingmechanic.webapp.ios;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class WebApplicationAppiumTest {
-
+public class IOSWebAutomationTest {
+    // Instance of Appium Driver
     AppiumDriver<WebElement> driver;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp () {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("browserName", "chrome");
-        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Android emulator");
-        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        caps.setCapability("avd", "Test");
+        caps.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X");
+        caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+        caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
+        caps.setCapability(CapabilityType.BROWSER_NAME, "safari");
 
         try {
-            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+            driver = new IOSDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -37,6 +37,6 @@ public class WebApplicationAppiumTest {
         driver.get("https://www.google.com");
         driver.findElement(By.name("q")).sendKeys("masihur's blog");
         driver.findElement(By.name("btnG")).click();
-        Assert.assertEquals(driver.findElements(By.xpath("//*[text() = \"Masihur's BLOG\"]")).size(), 1);
+        System.out.println("TITLE: " + driver.getTitle());
     }
 }
