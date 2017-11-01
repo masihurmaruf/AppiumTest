@@ -10,7 +10,6 @@ The following was used to create this project
 * testng 6.11
 * selenium-server-standalone 3.6.0
 * java-client 5.0.4
-* gson 2.8.0
 
 ## Application Under Test
 The following is the details of application under test.
